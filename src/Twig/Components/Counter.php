@@ -22,10 +22,12 @@ final class Counter
     {
         $this->count++;
 
+        /*
         $this->emit('toast:add', [
             'type' => 'success',
             'message' => "Counter increased to {$this->count}!"
         ]);
+        */
     }
 
     #[LiveAction]
@@ -38,10 +40,12 @@ final class Counter
             ? "Counter is now negative: {$this->count}"
             : "Counter decreased to {$this->count}";
 
+        /*
         $this->emit('toast:add', [
             'type' => $type,
             'message' => $message
         ]);
+        */
     }
 
     #[LiveAction]
@@ -49,9 +53,11 @@ final class Counter
     {
         $this->count = 0;
 
+        /*
         $this->emit('toast:add', [
             'type' => 'warning',
             'message' => 'Counter has been reset to 0!'
         ]);
+        */
     }
 }

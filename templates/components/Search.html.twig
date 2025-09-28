@@ -10,18 +10,19 @@
                 class="form-control"
                 id="search-input"
                 placeholder="Search by name or category..."
-                data-model="query"
+                data-model="debounce(200)|query"
                 value="{{ query }}"
             />
         </div>
 
         <div class="mb-3">
             <small class="text-muted">
-                Found {{ this.resultsCount }} result{{ this.resultsCount != 1 ? 's' : '' }}
+                <span data-loading="hide">Found {{ this.resultsCount }} result{{ this.resultsCount != 1 ? 's' : '' }}</span>
+                <span data-loading="show" class="text-info"><i class="fas fa-spinner fa-spin"></i> Searching...</span>
             </small>
         </div>
 
-        <div class="row">
+        <div class="row" data-loading="addClass(opacity-50)">
             {% for item in this.filteredResults %}
                 <div class="col-md-6 col-lg-4 mb-3">
                     <div class="card h-100 border-light">

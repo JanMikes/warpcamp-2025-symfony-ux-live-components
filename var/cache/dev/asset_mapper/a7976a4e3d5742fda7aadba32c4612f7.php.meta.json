@@ -1,1 +1,0 @@
-{"resources":[{"@type":"Symfony\\Component\\Config\\Resource\\FileResource","resource":"/app/assets/vendor/@fortawesome/fontawesome-free/css/solid.min.css"},{"@type":"Symfony\\Component\\Config\\Resource\\FileResource","resource":"/app/assets/vendor/@fortawesome/fontawesome-free/webfonts/fa-solid-900.woff2"}]}

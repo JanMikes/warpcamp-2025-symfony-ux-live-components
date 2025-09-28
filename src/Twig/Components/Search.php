@@ -33,6 +33,9 @@ final class Search
             return $this->demoData;
         }
 
+        // Demonstrate..
+        usleep(500000);
+
         $query = strtolower(trim($this->query));
 
         return array_filter($this->demoData, function ($item) use ($query) {

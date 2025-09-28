@@ -10,3 +10,4 @@
 ###< symfony/asset-mapper ###
 
 vendor/
+var/
