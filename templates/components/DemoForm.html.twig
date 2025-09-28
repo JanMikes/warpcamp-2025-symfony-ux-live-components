@@ -1,0 +1,45 @@
+<div{{ attributes.defaults({class: 'card shadow-sm'}) }}>
+    <div class="card-header bg-info text-white">
+        <h4 class="mb-0">📝 Live Form Component</h4>
+        <small class="text-white-50">Real-time validation & event emission demo</small>
+    </div>
+    <div class="card-body">
+        {{ form_start(form, {
+            'attr': {
+                'data-action': 'live#action',
+                'data-live-action-param': 'save',
+                'novalidate': 'novalidate'
+            }
+        }) }}
+
+        {{ form_row(form.name) }}
+        {{ form_row(form.email) }}
+        {{ form_row(form.subject) }}
+        {{ form_row(form.message) }}
+
+        <div class="d-flex justify-content-between align-items-center">
+            <div class="form-text">
+                {% if form.vars.valid %}
+                    <span class="text-success">✅ Form is valid and ready to submit</span>
+                {% else %}
+                    <span class="text-warning">⚠️ Please correct the errors above</span>
+                {% endif %}
+            </div>
+            <button
+                type="submit"
+                class="btn btn-primary"
+                {{ not form.vars.valid ? 'disabled' : '' }}
+            >
+                📤 Submit Form
+            </button>
+        </div>
+
+        {{ form_end(form) }}
+
+        {% if form.vars.submitted and not form.vars.valid %}
+            <div class="alert alert-danger mt-3" role="alert">
+                <strong>Validation Failed!</strong> Please check the form fields above.
+            </div>
+        {% endif %}
+    </div>
+</div>
