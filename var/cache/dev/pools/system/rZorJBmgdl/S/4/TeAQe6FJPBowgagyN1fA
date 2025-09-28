@@ -1,11 +1,15 @@
 <?php //ux.twig_component.component_properties
 
 return [PHP_INT_MAX, [
-    'App\\Twig\\Components\\CounterComponent' => [
+    'App\\Twig\\Components\\Alert' => [
         'properties' => [],
         'methods' => [],
     ],
-    'App\\Twig\\Components\\LiveCounterComponent' => [
+    'App\\Twig\\Components\\Counter' => [
+        'properties' => [],
+        'methods' => [],
+    ],
+    'App\\Twig\\Components\\Toast' => [
         'properties' => [],
         'methods' => [],
     ],

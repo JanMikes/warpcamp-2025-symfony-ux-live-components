@@ -1,0 +1,34 @@
+<div{{ attributes.defaults({
+    class: 'position-fixed top-0 end-0 p-3',
+}) }}>
+    {% for toast in toasts %}
+        <div class="alert alert-{{ toast.type }} alert-dismissible fade show mb-2" role="alert">
+            <strong>
+                {% if toast.type == 'success' %}
+                    ✅ Success!
+                {% elseif toast.type == 'danger' %}
+                    ❌ Error!
+                {% else %}
+                    ℹ️ {{ toast.type|title }}!
+                {% endif %}
+            </strong>
+            {{ toast.message }}
+            <button
+                type="button"
+                class="btn-close"
+                data-action="live#action"
+                data-live-action-param="removeToast"
+                data-live-id-param="{{ toast.id }}"
+                aria-label="Close">
+            </button>
+        </div>
+    {% endfor %}
+
+    {% if toasts|length > 1 %}
+        <div class="text-center mt-2">
+            <button type="button" class="btn btn-sm btn-outline-secondary" data-action="live#action" data-live-action-param="clearAll">
+                Clear All
+            </button>
+        </div>
+    {% endif %}
+</div>

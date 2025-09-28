@@ -388,6 +388,17 @@
     <service id="App\Twig\Components\Counter" class="App\Twig\Components\Counter" shared="false" public="true" autowire="true" autoconfigure="true">
       <tag name="twig.component" expose_public_props="1" attributes_var="attributes" live="1" csrf="1" route="ux_live_component" method="post" url_reference_type="1"/>
       <tag name="controller.service_arguments"/>
+      <call method="setLiveResponder">
+        <argument type="service" id="ux.live_component.live_responder"/>
+      </call>
+    </service>
+    <service id="App\Twig\Components\Search" class="App\Twig\Components\Search" shared="false" public="true" autowire="true" autoconfigure="true">
+      <tag name="twig.component" expose_public_props="1" attributes_var="attributes" live="1" csrf="1" route="ux_live_component" method="post" url_reference_type="1"/>
+      <tag name="controller.service_arguments"/>
+    </service>
+    <service id="App\Twig\Components\Toast" class="App\Twig\Components\Toast" shared="false" public="true" autowire="true" autoconfigure="true">
+      <tag name="twig.component" expose_public_props="1" attributes_var="attributes" live="1" csrf="1" route="ux_live_component" method="post" url_reference_type="1"/>
+      <tag name="controller.service_arguments"/>
     </service>
     <service id="argument_metadata_factory" class="Symfony\Component\HttpKernel\ControllerMetadata\ArgumentMetadataFactory"/>
     <service id="argument_resolver.backed_enum_resolver" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\BackedEnumValueResolver">
@@ -417,7 +428,7 @@
     </service>
     <service id="argument_resolver.service" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\ServiceValueResolver">
       <tag priority="-50" name="Symfony\Component\HttpKernel\Controller\ArgumentResolver\ServiceValueResolver">controller.argument_value_resolver</tag>
-      <argument type="service" id=".service_locator.F6vdjrP"/>
+      <argument type="service" id=".service_locator.ZiTBt4G"/>
     </service>
     <service id="argument_resolver.default" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\DefaultValueResolver">
       <tag priority="-100" name="Symfony\Component\HttpKernel\Controller\ArgumentResolver\DefaultValueResolver">controller.argument_value_resolver</tag>
@@ -3594,7 +3605,7 @@
     </service>
     <service id="argument_resolver.not_tagged_controller" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\NotTaggedControllerValueResolver">
       <tag name="controller.argument_value_resolver" priority="-200"/>
-      <argument type="service" id=".service_locator.F6vdjrP"/>
+      <argument type="service" id=".service_locator.ZiTBt4G"/>
     </service>
     <service id="debug.log_processor" class="Symfony\Bridge\Monolog\Processor\DebugProcessor">
       <tag name="kernel.reset" method="reset"/>
@@ -7640,7 +7651,7 @@
     <service id="ux.twig_component.component_factory" class="Symfony\UX\TwigComponent\ComponentFactory">
       <tag name="kernel.reset" method="reset"/>
       <argument type="service" id="ux.twig_component.component_template_finder"/>
-      <argument type="service" id=".service_locator.Ek9BRab"/>
+      <argument type="service" id=".service_locator.UYOAY0J"/>
       <argument type="service" id="property_accessor"/>
       <argument type="service" id="debug.event_dispatcher"/>
       <argument type="collection">
@@ -7671,10 +7682,44 @@
           <argument key="mount" type="collection"/>
           <argument key="post_mount" type="collection"/>
         </argument>
+        <argument key="Search" type="collection">
+          <argument key="expose_public_props">true</argument>
+          <argument key="attributes_var">attributes</argument>
+          <argument key="live">true</argument>
+          <argument key="csrf">true</argument>
+          <argument key="route">ux_live_component</argument>
+          <argument key="method">post</argument>
+          <argument key="url_reference_type">1</argument>
+          <argument key="key">Search</argument>
+          <argument key="service_id">App\Twig\Components\Search</argument>
+          <argument key="class">App\Twig\Components\Search</argument>
+          <argument key="template">components/Search.html.twig</argument>
+          <argument key="pre_mount" type="collection"/>
+          <argument key="mount" type="collection"/>
+          <argument key="post_mount" type="collection"/>
+        </argument>
+        <argument key="Toast" type="collection">
+          <argument key="expose_public_props">true</argument>
+          <argument key="attributes_var">attributes</argument>
+          <argument key="live">true</argument>
+          <argument key="csrf">true</argument>
+          <argument key="route">ux_live_component</argument>
+          <argument key="method">post</argument>
+          <argument key="url_reference_type">1</argument>
+          <argument key="key">Toast</argument>
+          <argument key="service_id">App\Twig\Components\Toast</argument>
+          <argument key="class">App\Twig\Components\Toast</argument>
+          <argument key="template">components/Toast.html.twig</argument>
+          <argument key="pre_mount" type="collection"/>
+          <argument key="mount" type="collection"/>
+          <argument key="post_mount" type="collection"/>
+        </argument>
       </argument>
       <argument type="collection">
         <argument key="App\Twig\Components\Alert">Alert</argument>
         <argument key="App\Twig\Components\Counter">Counter</argument>
+        <argument key="App\Twig\Components\Search">Search</argument>
+        <argument key="App\Twig\Components\Toast">Toast</argument>
       </argument>
       <argument type="service" id="twig"/>
     </service>
@@ -7684,6 +7729,8 @@
       <argument type="collection">
         <argument key="App\Twig\Components\Alert">null</argument>
         <argument key="App\Twig\Components\Counter">null</argument>
+        <argument key="App\Twig\Components\Search">null</argument>
+        <argument key="App\Twig\Components\Toast">null</argument>
       </argument>
       <argument type="service" id="cache.ux.twig_component" on-invalid="ignore"/>
     </service>
@@ -7717,6 +7764,8 @@
       <argument type="collection">
         <argument key="App\Twig\Components\Alert">Alert</argument>
         <argument key="App\Twig\Components\Counter">Counter</argument>
+        <argument key="App\Twig\Components\Search">Search</argument>
+        <argument key="App\Twig\Components\Toast">Toast</argument>
       </argument>
       <argument>components/</argument>
       <call method="setName">
@@ -7883,6 +7932,10 @@
     <service id=".abstract.instanceof.App\Twig\Components\Alert" class="App\Twig\Components\Alert" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.App\Twig\Components\Counter.0.App\Twig\Components\Counter" class="App\Twig\Components\Counter" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Twig\Components\Counter" class="App\Twig\Components\Counter" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.App\Twig\Components\Search.0.App\Twig\Components\Search" class="App\Twig\Components\Search" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Twig\Components\Search" class="App\Twig\Components\Search" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.App\Twig\Components\Toast.0.App\Twig\Components\Toast" class="App\Twig\Components\Toast" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Twig\Components\Toast" class="App\Twig\Components\Toast" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".service_locator.pRu6x_4" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
@@ -8407,7 +8460,19 @@
       <argument type="service" id="service_container"/>
       <factory service=".service_locator.zHyJIs5" method="withContext"/>
     </service>
-    <service id=".service_locator.F6vdjrP" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator.dW5r51W" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="liveResponder" type="service_closure" id="ux.live_component.live_responder"/>
+      </argument>
+    </service>
+    <service id=".service_locator.dW5r51W.App\Twig\Components\Counter::setLiveResponder()" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator_context" id="App\Twig\Components\Counter::setLiveResponder()"/>
+      <argument>App\Twig\Components\Counter::setLiveResponder()</argument>
+      <argument type="service" id="service_container"/>
+      <factory service=".service_locator.dW5r51W" method="withContext"/>
+    </service>
+    <service id=".service_locator.ZiTBt4G" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="kernel::registerContainerConfiguration" type="service_closure" id=".service_locator.zHyJIs5.kernel::registerContainerConfiguration()"/>
@@ -8965,11 +9030,13 @@
       <configurator service="debug.debug_logger_configurator" method="pushDebugLogger"/>
     </service>
     <service id="monolog.handler.null_internal" class="Monolog\Handler\NullHandler"/>
-    <service id=".service_locator.Ek9BRab" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator.UYOAY0J" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="Alert" type="service_closure" id="App\Twig\Components\Alert"/>
         <argument key="Counter" type="service_closure" id="App\Twig\Components\Counter"/>
+        <argument key="Search" type="service_closure" id="App\Twig\Components\Search"/>
+        <argument key="Toast" type="service_closure" id="App\Twig\Components\Toast"/>
       </argument>
     </service>
     <service id=".service_locator.ILdUWIS" class="Symfony\Component\DependencyInjection\ServiceLocator">
@@ -9279,6 +9346,8 @@
           <argument>App\Kernel</argument>
           <argument>App\Controller\HomeController</argument>
           <argument>App\Twig\Components\Counter</argument>
+          <argument>App\Twig\Components\Search</argument>
+          <argument>App\Twig\Components\Toast</argument>
           <argument>Doctrine\Bundle\DoctrineBundle\Controller\ProfilerController</argument>
         </argument>
       </call>
@@ -10747,7 +10816,7 @@
     <service id="Symfony\UX\LiveComponent\ComponentValidatorInterface" alias="Symfony\UX\LiveComponent\ComponentValidator"/>
     <service id="container.env_var_processors_locator" alias=".service_locator.pRu6x_4" public="true"/>
     <service id="twig.loader.filesystem" alias="twig.loader.native_filesystem"/>
-    <service id="argument_resolver.controller_locator" alias=".service_locator.F6vdjrP"/>
+    <service id="argument_resolver.controller_locator" alias=".service_locator.ZiTBt4G"/>
     <service id="doctrine.id_generator_locator" alias=".service_locator.BxSdgVt"/>
     <service id="twig.loader" alias="twig.loader.native_filesystem"/>
     <service id="Psr\Log\LoggerInterface $requestLogger" alias="monolog.logger.request"/>
@@ -10792,6 +10861,7 @@
     <service id="messenger.bus.default" alias="debug.traced.messenger.bus.default"/>
     <service id="doctrine.orm.default_metadata_driver" alias=".doctrine.orm.default_metadata_driver"/>
     <service id=".service_locator.n_ENPtW" alias=".service_locator.zHyJIs5"/>
+    <service id=".service_locator.w9bZV0W" alias=".service_locator.dW5r51W"/>
     <service id=".service_locator.9nvaCmp" alias=".service_locator.ZyP9f7K"/>
   </services>
 </container>

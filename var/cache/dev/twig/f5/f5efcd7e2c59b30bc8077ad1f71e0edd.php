@@ -143,7 +143,21 @@ class __TwigTemplate_c71910b11b1d3e2504114386d25f2043 extends Template
         </div>
     </div>
 
+    <div class=\"row justify-content-center mt-5\">
+        <div class=\"col-lg-10\">
+            ";
+        // line 23
+        yield $this->env->getRuntime('Symfony\UX\TwigComponent\Twig\ComponentRuntime')->render("Search");
+        yield "
+        </div>
+    </div>
 </div>
+
+<!-- Global Toast Component -->
+";
+        // line 29
+        yield $this->env->getRuntime('Symfony\UX\TwigComponent\Twig\ComponentRuntime')->render("Toast");
+        yield "
 ";
         
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
@@ -175,7 +189,7 @@ class __TwigTemplate_c71910b11b1d3e2504114386d25f2043 extends Template
      */
     public function getDebugInfo(): array
     {
-        return array (  141 => 17,  136 => 14,  122 => 11,  119 => 10,  105 => 9,  100 => 6,  87 => 5,  64 => 3,  41 => 1,);
+        return array (  159 => 29,  150 => 23,  141 => 17,  136 => 14,  122 => 11,  119 => 10,  105 => 9,  100 => 6,  87 => 5,  64 => 3,  41 => 1,);
     }
 
     public function getSourceContext(): Source
@@ -200,7 +214,15 @@ class __TwigTemplate_c71910b11b1d3e2504114386d25f2043 extends Template
         </div>
     </div>
 
+    <div class=\"row justify-content-center mt-5\">
+        <div class=\"col-lg-10\">
+            {{ component('Search') }}
+        </div>
+    </div>
 </div>
+
+<!-- Global Toast Component -->
+{{ component('Toast') }}
 {% endblock %}
 ", "home/index.html.twig", "/app/templates/home/index.html.twig");
     }
@@ -316,7 +338,7 @@ class __TwigTemplate_c71910b11b1d3e2504114386d25f2043___34593805151 extends Temp
      */
     public function getDebugInfo(): array
     {
-        return array (  234 => 9,  141 => 17,  136 => 14,  122 => 11,  119 => 10,  105 => 9,  100 => 6,  87 => 5,  64 => 3,  41 => 1,);
+        return array (  256 => 9,  159 => 29,  150 => 23,  141 => 17,  136 => 14,  122 => 11,  119 => 10,  105 => 9,  100 => 6,  87 => 5,  64 => 3,  41 => 1,);
     }
 
     public function getSourceContext(): Source
@@ -341,7 +363,15 @@ class __TwigTemplate_c71910b11b1d3e2504114386d25f2043___34593805151 extends Temp
         </div>
     </div>
 
+    <div class=\"row justify-content-center mt-5\">
+        <div class=\"col-lg-10\">
+            {{ component('Search') }}
+        </div>
+    </div>
 </div>
+
+<!-- Global Toast Component -->
+{{ component('Toast') }}
 {% endblock %}
 ", "home/index.html.twig", "/app/templates/home/index.html.twig");
     }
@@ -458,7 +488,7 @@ class __TwigTemplate_c71910b11b1d3e2504114386d25f2043___39203730481 extends Temp
      */
     public function getDebugInfo(): array
     {
-        return array (  418 => 12,  375 => 11,  234 => 9,  141 => 17,  136 => 14,  122 => 11,  119 => 10,  105 => 9,  100 => 6,  87 => 5,  64 => 3,  41 => 1,);
+        return array (  448 => 12,  405 => 11,  256 => 9,  159 => 29,  150 => 23,  141 => 17,  136 => 14,  122 => 11,  119 => 10,  105 => 9,  100 => 6,  87 => 5,  64 => 3,  41 => 1,);
     }
 
     public function getSourceContext(): Source
@@ -483,7 +513,15 @@ class __TwigTemplate_c71910b11b1d3e2504114386d25f2043___39203730481 extends Temp
         </div>
     </div>
 
+    <div class=\"row justify-content-center mt-5\">
+        <div class=\"col-lg-10\">
+            {{ component('Search') }}
+        </div>
+    </div>
 </div>
+
+<!-- Global Toast Component -->
+{{ component('Toast') }}
 {% endblock %}
 ", "home/index.html.twig", "/app/templates/home/index.html.twig");
     }

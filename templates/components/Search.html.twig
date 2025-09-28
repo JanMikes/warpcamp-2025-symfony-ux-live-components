@@ -1,0 +1,47 @@
+<div{{ attributes.defaults({class: 'card shadow-sm'}) }}>
+    <div class="card-header bg-info text-white">
+        <h4 class="mb-0">🔍 Live Search Component</h4>
+    </div>
+    <div class="card-body">
+        <div class="mb-3">
+            <label for="search-input" class="form-label">Search products:</label>
+            <input
+                type="text"
+                class="form-control"
+                id="search-input"
+                placeholder="Search by name or category..."
+                data-model="query"
+                value="{{ query }}"
+            />
+        </div>
+
+        <div class="mb-3">
+            <small class="text-muted">
+                Found {{ this.resultsCount }} result{{ this.resultsCount != 1 ? 's' : '' }}
+            </small>
+        </div>
+
+        <div class="row">
+            {% for item in this.filteredResults %}
+                <div class="col-md-6 col-lg-4 mb-3">
+                    <div class="card h-100 border-light">
+                        <div class="card-body">
+                            <h6 class="card-title">{{ item.name }}</h6>
+                            <p class="card-text">
+                                <span class="badge bg-secondary mb-2">{{ item.category }}</span><br>
+                                <strong class="text-success">${{ item.price }}</strong>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            {% else %}
+                <div class="col-12">
+                    <div class="alert alert-light text-center">
+                        <h5>No results found</h5>
+                        <p class="mb-0">Try searching for something else.</p>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
