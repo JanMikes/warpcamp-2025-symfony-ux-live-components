@@ -20,6 +20,6 @@ class getUx_TwigComponent_ComponentPropertiesService extends App_KernelDevDebugC
     {
         include_once \dirname(__DIR__, 4).'/vendor/symfony/ux-twig-component/src/ComponentProperties.php';
 
-        return $container->privates['ux.twig_component.component_properties'] = new \Symfony\UX\TwigComponent\ComponentProperties(($container->privates['property_accessor'] ?? self::getPropertyAccessorService($container)), ['App\\Twig\\Components\\CounterComponent' => NULL, 'App\\Twig\\Components\\LiveCounterComponent' => NULL], ($container->privates['cache.ux.twig_component'] ?? self::getCache_Ux_TwigComponentService($container)));
+        return $container->privates['ux.twig_component.component_properties'] = new \Symfony\UX\TwigComponent\ComponentProperties(($container->privates['property_accessor'] ?? self::getPropertyAccessorService($container)), ['App\\Twig\\Components\\Alert' => NULL, 'App\\Twig\\Components\\Counter' => NULL], ($container->privates['cache.ux.twig_component'] ?? self::getCache_Ux_TwigComponentService($container)));
     }
 }

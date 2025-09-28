@@ -382,10 +382,10 @@
         <argument type="service" id=".service_locator.ZyP9f7K.App\Controller\HomeController"/>
       </call>
     </service>
-    <service id="App\Twig\Components\CounterComponent" class="App\Twig\Components\CounterComponent" shared="false" autowire="true" autoconfigure="true">
+    <service id="App\Twig\Components\Alert" class="App\Twig\Components\Alert" shared="false" autowire="true" autoconfigure="true">
       <tag name="twig.component" expose_public_props="1" attributes_var="attributes"/>
     </service>
-    <service id="App\Twig\Components\LiveCounterComponent" class="App\Twig\Components\LiveCounterComponent" shared="false" public="true" autowire="true" autoconfigure="true">
+    <service id="App\Twig\Components\Counter" class="App\Twig\Components\Counter" shared="false" public="true" autowire="true" autoconfigure="true">
       <tag name="twig.component" expose_public_props="1" attributes_var="attributes" live="1" csrf="1" route="ux_live_component" method="post" url_reference_type="1"/>
       <tag name="controller.service_arguments"/>
     </service>
@@ -7640,22 +7640,22 @@
     <service id="ux.twig_component.component_factory" class="Symfony\UX\TwigComponent\ComponentFactory">
       <tag name="kernel.reset" method="reset"/>
       <argument type="service" id="ux.twig_component.component_template_finder"/>
-      <argument type="service" id=".service_locator.skuopig"/>
+      <argument type="service" id=".service_locator.Ek9BRab"/>
       <argument type="service" id="property_accessor"/>
       <argument type="service" id="debug.event_dispatcher"/>
       <argument type="collection">
-        <argument key="CounterComponent" type="collection">
+        <argument key="Alert" type="collection">
           <argument key="expose_public_props">true</argument>
           <argument key="attributes_var">attributes</argument>
-          <argument key="key">CounterComponent</argument>
-          <argument key="service_id">App\Twig\Components\CounterComponent</argument>
-          <argument key="class">App\Twig\Components\CounterComponent</argument>
-          <argument key="template">components/CounterComponent.html.twig</argument>
+          <argument key="key">Alert</argument>
+          <argument key="service_id">App\Twig\Components\Alert</argument>
+          <argument key="class">App\Twig\Components\Alert</argument>
+          <argument key="template">components/Alert.html.twig</argument>
           <argument key="pre_mount" type="collection"/>
           <argument key="mount" type="collection"/>
           <argument key="post_mount" type="collection"/>
         </argument>
-        <argument key="LiveCounterComponent" type="collection">
+        <argument key="Counter" type="collection">
           <argument key="expose_public_props">true</argument>
           <argument key="attributes_var">attributes</argument>
           <argument key="live">true</argument>
@@ -7663,18 +7663,18 @@
           <argument key="route">ux_live_component</argument>
           <argument key="method">post</argument>
           <argument key="url_reference_type">1</argument>
-          <argument key="key">LiveCounterComponent</argument>
-          <argument key="service_id">App\Twig\Components\LiveCounterComponent</argument>
-          <argument key="class">App\Twig\Components\LiveCounterComponent</argument>
-          <argument key="template">components/LiveCounterComponent.html.twig</argument>
+          <argument key="key">Counter</argument>
+          <argument key="service_id">App\Twig\Components\Counter</argument>
+          <argument key="class">App\Twig\Components\Counter</argument>
+          <argument key="template">components/Counter.html.twig</argument>
           <argument key="pre_mount" type="collection"/>
           <argument key="mount" type="collection"/>
           <argument key="post_mount" type="collection"/>
         </argument>
       </argument>
       <argument type="collection">
-        <argument key="App\Twig\Components\CounterComponent">CounterComponent</argument>
-        <argument key="App\Twig\Components\LiveCounterComponent">LiveCounterComponent</argument>
+        <argument key="App\Twig\Components\Alert">Alert</argument>
+        <argument key="App\Twig\Components\Counter">Counter</argument>
       </argument>
       <argument type="service" id="twig"/>
     </service>
@@ -7682,8 +7682,8 @@
     <service id="ux.twig_component.component_properties" class="Symfony\UX\TwigComponent\ComponentProperties">
       <argument type="service" id="property_accessor"/>
       <argument type="collection">
-        <argument key="App\Twig\Components\CounterComponent">null</argument>
-        <argument key="App\Twig\Components\LiveCounterComponent">null</argument>
+        <argument key="App\Twig\Components\Alert">null</argument>
+        <argument key="App\Twig\Components\Counter">null</argument>
       </argument>
       <argument type="service" id="cache.ux.twig_component" on-invalid="ignore"/>
     </service>
@@ -7715,8 +7715,8 @@
       <argument type="service" id="ux.twig_component.component_factory"/>
       <argument type="service" id="twig"/>
       <argument type="collection">
-        <argument key="App\Twig\Components\CounterComponent">CounterComponent</argument>
-        <argument key="App\Twig\Components\LiveCounterComponent">LiveCounterComponent</argument>
+        <argument key="App\Twig\Components\Alert">Alert</argument>
+        <argument key="App\Twig\Components\Counter">Counter</argument>
       </argument>
       <argument>components/</argument>
       <call method="setName">
@@ -7879,10 +7879,10 @@
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\HomeController" class="App\Controller\HomeController" autowire="true" abstract="true"/>
     <service id=".instanceof.App\Controller\HomeController.0.App\Controller\HomeController" class="App\Controller\HomeController" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Controller\HomeController" class="App\Controller\HomeController" autowire="true" autoconfigure="true" abstract="true"/>
-    <service id=".instanceof.App\Twig\Components\CounterComponent.0.App\Twig\Components\CounterComponent" class="App\Twig\Components\CounterComponent" autowire="true" abstract="true"/>
-    <service id=".abstract.instanceof.App\Twig\Components\CounterComponent" class="App\Twig\Components\CounterComponent" autowire="true" autoconfigure="true" abstract="true"/>
-    <service id=".instanceof.App\Twig\Components\LiveCounterComponent.0.App\Twig\Components\LiveCounterComponent" class="App\Twig\Components\LiveCounterComponent" autowire="true" abstract="true"/>
-    <service id=".abstract.instanceof.App\Twig\Components\LiveCounterComponent" class="App\Twig\Components\LiveCounterComponent" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.App\Twig\Components\Alert.0.App\Twig\Components\Alert" class="App\Twig\Components\Alert" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Twig\Components\Alert" class="App\Twig\Components\Alert" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.App\Twig\Components\Counter.0.App\Twig\Components\Counter" class="App\Twig\Components\Counter" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Twig\Components\Counter" class="App\Twig\Components\Counter" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".service_locator.pRu6x_4" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
@@ -8965,11 +8965,11 @@
       <configurator service="debug.debug_logger_configurator" method="pushDebugLogger"/>
     </service>
     <service id="monolog.handler.null_internal" class="Monolog\Handler\NullHandler"/>
-    <service id=".service_locator.skuopig" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator.Ek9BRab" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
-        <argument key="CounterComponent" type="service_closure" id="App\Twig\Components\CounterComponent"/>
-        <argument key="LiveCounterComponent" type="service_closure" id="App\Twig\Components\LiveCounterComponent"/>
+        <argument key="Alert" type="service_closure" id="App\Twig\Components\Alert"/>
+        <argument key="Counter" type="service_closure" id="App\Twig\Components\Counter"/>
       </argument>
     </service>
     <service id=".service_locator.ILdUWIS" class="Symfony\Component\DependencyInjection\ServiceLocator">
@@ -9278,7 +9278,7 @@
         <argument type="collection">
           <argument>App\Kernel</argument>
           <argument>App\Controller\HomeController</argument>
-          <argument>App\Twig\Components\LiveCounterComponent</argument>
+          <argument>App\Twig\Components\Counter</argument>
           <argument>Doctrine\Bundle\DoctrineBundle\Controller\ProfilerController</argument>
         </argument>
       </call>

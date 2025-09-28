@@ -3,7 +3,7 @@
 namespace ContainerKePkdDO;
 
 return [
-    'App\\Twig\\Components\\CounterComponent' => true,
+    'App\\Twig\\Components\\Alert' => true,
     'Doctrine\\Bundle\\DoctrineBundle\\Dbal\\ManagerRegistryAwareConnectionProvider' => true,
     'Doctrine\\Common\\Persistence\\ManagerRegistry' => true,
     'Doctrine\\DBAL\\Connection' => true,

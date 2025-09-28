@@ -14,15 +14,15 @@ class getLiveCounterComponentService extends App_KernelDevDebugContainer
     /**
      * Gets the public 'App\Twig\Components\LiveCounterComponent' autowired service.
      *
-     * @return \App\Twig\Components\LiveCounterComponent
+     * @return \App\Twig\Components\Counter
      */
     public static function do($container, $lazyLoad = true)
     {
         include_once \dirname(__DIR__, 4).'/vendor/symfony/ux-live-component/src/DefaultActionTrait.php';
-        include_once \dirname(__DIR__, 4).'/src/Twig/Components/LiveCounterComponent.php';
+        include_once \dirname(__DIR__, 4) . '/src/Twig/Components/Counter.php';
 
-        $container->factories['App\\Twig\\Components\\LiveCounterComponent'] = function ($container) {
-            return new \App\Twig\Components\LiveCounterComponent();
+        $container->factories['App\\Twig\\Components\\Counter'] = function ($container) {
+            return new \App\Twig\Components\Counter();
         };
 
         return $container->factories['App\\Twig\\Components\\LiveCounterComponent']($container);

@@ -57,3 +57,8 @@ bc30de,185.199.109.133,POST,http://localhost:8080/_components/LiveCounterCompone
 cc4717,185.199.109.133,POST,http://localhost:8080/_components/LiveCounterComponent/increase,1759047272,,200,request
 1ff1a8,185.199.109.133,POST,http://localhost:8080/_components/LiveCounterComponent/increase,1759047272,,200,request
 e086d2,185.199.109.133,POST,http://localhost:8080/_components/LiveCounterComponent/reset,1759047272,,200,request
+e2aca7,185.199.109.133,GET,http://localhost:8080/,1759047456,,200,request
+535420,185.199.109.133,GET,http://localhost:8080/,1759047545,,200,request
+ea60e9,185.199.109.133,GET,http://localhost:8080/,1759047574,,200,request
+1ac2d0,185.199.109.133,GET,http://localhost:8080/,1759047600,,200,request
+d9b1f1,185.199.109.133,GET,http://localhost:8080/,1759047628,,200,request

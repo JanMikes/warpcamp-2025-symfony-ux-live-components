@@ -22,7 +22,7 @@ class getUx_TwigComponent_Command_DebugService extends App_KernelDevDebugContain
         include_once \dirname(__DIR__, 4).'/vendor/symfony/console/Command/Command.php';
         include_once \dirname(__DIR__, 4).'/vendor/symfony/ux-twig-component/src/Command/TwigComponentDebugCommand.php';
 
-        $container->privates['ux.twig_component.command.debug'] = $instance = new \Symfony\UX\TwigComponent\Command\TwigComponentDebugCommand((\dirname(__DIR__, 4).'/templates'), ($container->privates['ux.twig_component.component_factory'] ?? self::getUx_TwigComponent_ComponentFactoryService($container)), ($container->privates['twig'] ?? self::getTwigService($container)), ['App\\Twig\\Components\\CounterComponent' => 'CounterComponent', 'App\\Twig\\Components\\LiveCounterComponent' => 'LiveCounterComponent'], 'components/');
+        $container->privates['ux.twig_component.command.debug'] = $instance = new \Symfony\UX\TwigComponent\Command\TwigComponentDebugCommand((\dirname(__DIR__, 4).'/templates'), ($container->privates['ux.twig_component.component_factory'] ?? self::getUx_TwigComponent_ComponentFactoryService($container)), ($container->privates['twig'] ?? self::getTwigService($container)), ['App\\Twig\\Components\\Alert' => 'CounterComponent', 'App\\Twig\\Components\\Counter' => 'LiveCounterComponent'], 'components/');
 
         $instance->setName('debug:twig-component');
         $instance->setDescription('Display components and them usages for an application');

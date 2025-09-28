@@ -58,7 +58,7 @@ class App_KernelDevDebugContainer extends Container
         ];
         $this->fileMap = [
             'App\\Controller\\HomeController' => 'getHomeControllerService',
-            'App\\Twig\\Components\\LiveCounterComponent' => 'getLiveCounterComponentService',
+            'App\\Twig\\Components\\Counter' => 'getLiveCounterComponentService',
             'Doctrine\\Bundle\\DoctrineBundle\\Controller\\ProfilerController' => 'getProfilerControllerService',
             'Symfony\\Bundle\\FrameworkBundle\\Controller\\RedirectController' => 'getRedirectControllerService',
             'Symfony\\Bundle\\FrameworkBundle\\Controller\\TemplateController' => 'getTemplateControllerService',
@@ -923,7 +923,7 @@ class App_KernelDevDebugContainer extends Container
         }
         $b = new \Symfony\Bundle\FrameworkBundle\Controller\ControllerResolver($container, ($container->privates['monolog.logger.request'] ?? self::getMonolog_Logger_RequestService($container)));
         $b->allowControllers(['Symfony\\Bundle\\FrameworkBundle\\Controller\\AbstractController', 'Symfony\\Bundle\\FrameworkBundle\\Controller\\TemplateController']);
-        $b->allowControllers(['App\\Kernel', 'App\\Controller\\HomeController', 'App\\Twig\\Components\\LiveCounterComponent', 'Doctrine\\Bundle\\DoctrineBundle\\Controller\\ProfilerController']);
+        $b->allowControllers(['App\\Kernel', 'App\\Controller\\HomeController', 'App\\Twig\\Components\\Counter', 'Doctrine\\Bundle\\DoctrineBundle\\Controller\\ProfilerController']);
         $c = ($container->services['debug.stopwatch'] ??= new \Symfony\Component\Stopwatch\Stopwatch(true));
 
         return $container->services['http_kernel'] = new \Symfony\Component\HttpKernel\HttpKernel($a, new \Symfony\Component\HttpKernel\Controller\TraceableControllerResolver($b, $c), ($container->services['request_stack'] ??= new \Symfony\Component\HttpFoundation\RequestStack()), new \Symfony\Component\HttpKernel\Controller\TraceableArgumentResolver(new \Symfony\Component\HttpKernel\Controller\ArgumentResolver(new \Symfony\Component\HttpKernel\ControllerMetadata\ArgumentMetadataFactory(), new RewindableGenerator(function () use ($container) {
@@ -2202,12 +2202,12 @@ class App_KernelDevDebugContainer extends Container
         }
 
         return $container->privates['ux.twig_component.component_factory'] = new \Symfony\UX\TwigComponent\ComponentFactory(new \Symfony\UX\TwigComponent\ComponentTemplateFinder(($container->privates['twig.loader.native_filesystem'] ?? self::getTwig_Loader_NativeFilesystemService($container)), 'components/'), new \Symfony\Component\DependencyInjection\Argument\ServiceLocator($container->getService ??= $container->getService(...), [
-            'CounterComponent' => [false, 'App\\Twig\\Components\\CounterComponent', 'getCounterComponentService', true],
-            'LiveCounterComponent' => [false, 'App\\Twig\\Components\\LiveCounterComponent', 'getLiveCounterComponentService', true],
+            'CounterComponent' => [false, 'App\\Twig\\Components\\Alert', 'getCounterComponentService', true],
+            'LiveCounterComponent' => [false, 'App\\Twig\\Components\\Counter', 'getLiveCounterComponentService', true],
         ], [
             'CounterComponent' => '?',
             'LiveCounterComponent' => '?',
-        ]), ($container->privates['property_accessor'] ?? self::getPropertyAccessorService($container)), $a, ['CounterComponent' => ['expose_public_props' => true, 'attributes_var' => 'attributes', 'key' => 'CounterComponent', 'service_id' => 'App\\Twig\\Components\\CounterComponent', 'class' => 'App\\Twig\\Components\\CounterComponent', 'template' => 'components/CounterComponent.html.twig', 'pre_mount' => [], 'mount' => [], 'post_mount' => []], 'LiveCounterComponent' => ['expose_public_props' => true, 'attributes_var' => 'attributes', 'live' => true, 'csrf' => true, 'route' => 'ux_live_component', 'method' => 'post', 'url_reference_type' => 1, 'key' => 'LiveCounterComponent', 'service_id' => 'App\\Twig\\Components\\LiveCounterComponent', 'class' => 'App\\Twig\\Components\\LiveCounterComponent', 'template' => 'components/LiveCounterComponent.html.twig', 'pre_mount' => [], 'mount' => [], 'post_mount' => []]], ['App\\Twig\\Components\\CounterComponent' => 'CounterComponent', 'App\\Twig\\Components\\LiveCounterComponent' => 'LiveCounterComponent'], $b);
+        ]), ($container->privates['property_accessor'] ?? self::getPropertyAccessorService($container)), $a, ['CounterComponent' => ['expose_public_props' => true, 'attributes_var' => 'attributes', 'key' => 'CounterComponent', 'service_id' => 'App\\Twig\\Components\\Alert', 'class' => 'App\\Twig\\Components\\Alert', 'template' => 'components/CounterComponent.html.twig', 'pre_mount' => [], 'mount' => [], 'post_mount' => []], 'LiveCounterComponent' => ['expose_public_props' => true, 'attributes_var' => 'attributes', 'live' => true, 'csrf' => true, 'route' => 'ux_live_component', 'method' => 'post', 'url_reference_type' => 1, 'key' => 'LiveCounterComponent', 'service_id' => 'App\\Twig\\Components\\Counter', 'class' => 'App\\Twig\\Components\\Counter', 'template' => 'components/LiveCounterComponent.html.twig', 'pre_mount' => [], 'mount' => [], 'post_mount' => []]], ['App\\Twig\\Components\\Alert' => 'CounterComponent', 'App\\Twig\\Components\\Counter' => 'LiveCounterComponent'], $b);
     }
 
     /**

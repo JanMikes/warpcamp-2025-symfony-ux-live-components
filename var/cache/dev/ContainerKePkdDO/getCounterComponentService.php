@@ -14,14 +14,14 @@ class getCounterComponentService extends App_KernelDevDebugContainer
     /**
      * Gets the private 'App\Twig\Components\CounterComponent' autowired service.
      *
-     * @return \App\Twig\Components\CounterComponent
+     * @return \App\Twig\Components\Alert
      */
     public static function do($container, $lazyLoad = true)
     {
-        include_once \dirname(__DIR__, 4).'/src/Twig/Components/CounterComponent.php';
+        include_once \dirname(__DIR__, 4) . '/src/Twig/Components/Alert.php';
 
-        $container->factories['service_container']['App\\Twig\\Components\\CounterComponent'] = function ($container) {
-            return new \App\Twig\Components\CounterComponent();
+        $container->factories['service_container']['App\\Twig\\Components\\Alert'] = function ($container) {
+            return new \App\Twig\Components\Alert();
         };
 
         return $container->factories['service_container']['App\\Twig\\Components\\CounterComponent']($container);
